@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.lilith123.hestiamobile"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,16 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "API_BASE_URL": "https://hisatochii.id.vn/api/v1",
+      "WS_BASE_URL": "wss://hisatochii.id.vn/api/v1/ws/v1/env/query",
+      "DEFAULT_ROOM_KIT01": "kit-01",
+      "router": {},
+      "eas": {
+        "projectId": "aea42764-281e-4b43-9e01-8315e6e0adbb"
+      }
+    },
+    "owner": "lilith123"
   }
 }

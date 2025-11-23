@@ -9,3 +9,5 @@ export const config = {
     KIT01: extra.DEFAULT_ROOM_KIT01 as string,
   },
 } as const;
+
+console.log(config);
