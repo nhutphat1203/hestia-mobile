@@ -5,21 +5,29 @@ import React from "react";
 export default function BottomTabsLayout() {
   return (
     <Tabs
-      screenOptions={{ tabBarActiveTintColor: "teal" }}
+      screenOptions={{
+        tabBarActiveTintColor: "#3A7AFE",
+        tabBarInactiveTintColor: "#9CA3AF",
+        tabBarStyle: {
+          backgroundColor: "#FFFFFF",
+          borderTopWidth: 0,
+          shadowColor: "#000",
+          shadowOpacity: 0.06,
+          shadowRadius: 12,
+        },
+        headerStyle: { backgroundColor: "#F5F7FA" },
+        headerShadowVisible: false,
+      }}
       backBehavior="order"
     >
       <Tabs.Screen
         name="(home)"
         options={{
-          title: "Home",
+          title: "Dashboard",
           headerShown: false,
-          tabBarLabel: "Index",
+          tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="numeric-1-box-outline"
-              size={size}
-              color={color}
-            />
+            <MaterialCommunityIcons name="home-analytics" size={size} color={color} />
           ),
         }}
       />
@@ -27,14 +35,9 @@ export default function BottomTabsLayout() {
         name="logout"
         options={{
           title: "Logout",
-          headerShown: true ,
-          popToTopOnBlur: true,
+          headerShown: true,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="numeric-2-box-outline"
-              size={size}
-              color={color}
-            />
+            <MaterialCommunityIcons name="logout" size={size} color={color} />
           ),
         }}
       />

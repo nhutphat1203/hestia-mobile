@@ -1,10 +1,9 @@
 import { useAuth } from "@/hooks/auth_context";
-import { useRouter } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Animated, { FadeIn } from "react-native-reanimated";
 
 export default function LogOutScreen() {
   const { logout } = useAuth();
-  const router = useRouter();
 
   const handleLogout = async () => {
     await logout();
@@ -12,12 +11,13 @@ export default function LogOutScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.box}>
-        <Text style={styles.text}>Bạn có chắc muốn đăng xuất?</Text>
+      <Animated.View entering={FadeIn.duration(250)} style={styles.box}>
+        <Text style={styles.text}>Ready to leave?</Text>
+        <Text style={styles.subtext}>Your real-time connection will be stopped.</Text>
         <TouchableOpacity style={styles.button} onPress={handleLogout}>
           <Text style={styles.buttonText}>Logout</Text>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
     </View>
   );
 }
@@ -25,32 +25,39 @@ export default function LogOutScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f3f4f6",
+    backgroundColor: "#F5F7FA",
     justifyContent: "center",
     alignItems: "center",
+    padding: 24,
   },
   box: {
-    width: "90%",
-    maxWidth: 400,
+    width: "100%",
+    maxWidth: 420,
     backgroundColor: "#fff",
     padding: 24,
-    borderRadius: 16,
+    borderRadius: 18,
     shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 5,
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 6 },
+    shadowRadius: 12,
+    elevation: 6,
+    alignItems: "center",
+    gap: 6,
   },
   text: {
-    fontSize: 18,
-    textAlign: "center",
-    marginBottom: 16,
-    fontWeight: "600",
+    fontSize: 22,
+    fontWeight: "800",
+    color: "#0F172A",
+  },
+  subtext: {
+    color: "#6B7280",
+    marginBottom: 12,
   },
   button: {
-    backgroundColor: "#ef4444",
+    backgroundColor: "#E53935",
     paddingVertical: 14,
-    borderRadius: 12,
+    borderRadius: 14,
+    width: "100%",
   },
   buttonText: {
     color: "#fff",
